@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "./proto";
+
+package proto;
+
+// The request message containing the greetings
+message Name {
+  string name = 1;
+}
+
+// The response message containing the user.
+message User {
+    string name = 1;
+    string class = 2;
+    int64 roll = 3;
+}
+
+// The service definition.
+service Service {
+  // Receives a user
+  rpc GetUserByName (Name) returns (User) {}
+}
